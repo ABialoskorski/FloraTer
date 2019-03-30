@@ -1,16 +1,15 @@
 <template>
   <v-app>
-    <v-toolbar app dark>
-      <v-toolbar-title>
-        <ul class="home__list">
-          <li class="home__link">
-            <router-link to="/register">Rejestracja</router-link>
-          </li>
-          <li class="home__link">
-            <router-link to="/login">Logowanie</router-link>
-          </li>
-        </ul>
-      </v-toolbar-title>
+    <v-toolbar fixed dark>
+      <v-toolbar-items>
+        <v-btn
+        flat
+        dark
+          >Zaloguj się</v-btn>
+      <v-btn class="pink white--text">
+        Zarejestruj się
+      </v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <h2>Witaj we FloraTer_1</h2>
   </v-app>
