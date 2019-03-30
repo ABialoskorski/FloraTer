@@ -2,12 +2,17 @@
   <v-app>
     <v-toolbar fixed dark>
       <v-toolbar-items>
-        <v-btn
-        flat
-        dark
-          >Zaloguj się</v-btn>
-      <v-btn class="pink white--text">
-        Zarejestruj się
+        <v-btn class="home__button green white--text"
+        :to="{
+        name: 'login'
+        }"
+        >Zaloguj się
+      </v-btn>
+      <v-btn class="pink white--text"
+      :to="{
+          name: 'register'
+        }"
+        >Zarejestruj się
       </v-btn>
       </v-toolbar-items>
     </v-toolbar>
@@ -22,29 +27,13 @@ export default {};
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.home{
-  &__list{
-    list-style-type: none;
-    display: flex;
-    text-decoration: none;
-    flex-flow: wrap;
-    justify-content: flex-end;
-    padding-top: 25px;
-  }
-  &__link a{
-    text-decoration: none;
-    text-transform: uppercase;
-    color: white;
-    font-size: 19px;
-    background-color: #55a4b4;
-    text-align: center;
-    margin-left: 24px;
-    width: 100px;
-    border: 22px solid #55a4b4;
+.home {
+  &__button{
+  justify-content: flex-end;
   }
 }
 h2{
-  margin-top: 50px;
+  margin-top: 70px;
   font-size: 34px;
   text-align: center;
 }
