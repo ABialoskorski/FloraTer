@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <nav>
-      <ul>
-        <li>
-          <router-link to="/register">Rejestracja</router-link>
-        </li>
-        <li>
-          <router-link to="/login">Logowanie</router-link>
-        </li>
-      </ul>
-    </nav>
+  <v-app>
+    <v-toolbar app dark>
+      <v-toolbar-title>
+        <ul class="home__list">
+          <li class="home__link">
+            <router-link to="/register">Rejestracja</router-link>
+          </li>
+          <li class="home__link">
+            <router-link to="/login">Logowanie</router-link>
+          </li>
+        </ul>
+      </v-toolbar-title>
+    </v-toolbar>
     <h2>Witaj we FloraTer_1</h2>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -21,4 +23,30 @@ export default {};
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.home{
+  &__list{
+    list-style-type: none;
+    display: flex;
+    text-decoration: none;
+    flex-flow: wrap;
+    justify-content: flex-end;
+    padding-top: 25px;
+  }
+  &__link a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 19px;
+    background-color: #55a4b4;
+    text-align: center;
+    margin-left: 24px;
+    width: 100px;
+    border: 22px solid #55a4b4;
+  }
+}
+h2{
+  margin-top: 50px;
+  font-size: 34px;
+  text-align: center;
+}
 </style>
