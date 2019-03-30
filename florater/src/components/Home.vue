@@ -33,7 +33,7 @@ export default {};
   }
 }
 h2{
-  margin-top: 70px;
+  margin-top: 100px;
   font-size: 34px;
   text-align: center;
 }
