@@ -154,21 +154,21 @@ export default {
     send() {
       const axios = require('axios');
 
-      const getPlant = () => {
+      const Register = () => {
         try {
           return axios.post('http://127.0.0.1:8000/api/users/register/', {
-            first_name: 'fuck',
-            last_name: 'js',
-            password: 'secret',
-            email: 'SUPER@TEST.COM'
+            first_name: this.first_name,
+            last_name: this.last_name,
+            password: this.password,
+            email: this.email
           })
         } catch (error) {
           alert(error)
         }
       }
 
-      const showPlant = async () => {
-        const data = getPlant()
+      const showRegistrationResponse = async () => {
+        const data = Register()
           .then(response => {
             alert(
               JSON.stringify(response)
@@ -179,7 +179,7 @@ export default {
           })
       }
 
-      showPlant()
+      showRegistrationResponse()
 
     },
 
