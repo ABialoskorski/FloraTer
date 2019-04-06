@@ -151,6 +151,38 @@ export default {
 
     },
 
+    send() {
+      const axios = require('axios');
+
+      const getPlant = () => {
+        try {
+          return axios.post('http://127.0.0.1:8000/api/users/register/', {
+            first_name: 'fuck',
+            last_name: 'js',
+            password: 'secret',
+            email: 'SUPER@TEST.COM'
+          })
+        } catch (error) {
+          alert(error)
+        }
+      }
+
+      const showPlant = async () => {
+        const data = getPlant()
+          .then(response => {
+            alert(
+              JSON.stringify(response)
+            )
+          })
+          .catch(error => {
+            alert(error)
+          })
+      }
+
+      showPlant()
+
+    },
+
   }
 };
 </script>
