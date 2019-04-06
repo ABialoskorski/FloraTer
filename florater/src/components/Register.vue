@@ -44,8 +44,11 @@
       @blur="$v.password.$touch()"
     ></v-text-field>
     <v-btn type="submit" @click="register">Zarejestruj się</v-btn>
+    <v-btn @click="data">example_data</v-btn>
+    <v-btn @click="send">example_account</v-btn>
     <v-btn @click="clear">Wyczyść</v-btn>
   </form>
+  
 </template>
 
 <script>
@@ -117,7 +120,37 @@ export default {
       this.last_name = "";
       this.email = "";
       this.password = "";
-    }
+    },
+
+    data() {
+      const axios = require('axios');
+
+      const getPlant = () => {
+        try {
+          return axios.get('http://127.0.0.1:8000/api/plants/')
+        } catch (error) {
+          alert(error)
+        }
+      }
+
+      const showPlant = async () => {
+        const data = getPlant()
+          .then(response => {
+            if (response.data) {
+              alert(
+                JSON.stringify(response.data)
+              )
+            }
+          })
+          .catch(error => {
+            alert(error)
+          })
+      }
+
+      showPlant()
+
+    },
+
   }
 };
 </script>
