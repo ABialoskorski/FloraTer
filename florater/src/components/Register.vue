@@ -1,7 +1,8 @@
 <template>
-  <form>
+  <form method="POST" action="http://kfsz.pythonanywhere.com/api/users/register/">
     <v-text-field
       label="Imię"
+      name="first_name"
       v-model="first_name"
       :error-messages="first_nameErrors"
       :counter="20"
@@ -12,6 +13,7 @@
     ></v-text-field>
     <v-text-field
       label="Nazwisko"
+      name="last_name"
       v-model="last_name"
       :error-messages="last_nameErrors"
       :counter="30"
@@ -22,6 +24,7 @@
     ></v-text-field>
     <v-text-field
       label="E-mail"
+      name="email"
       v-model="email"
       :error-messages="emailErrors"
       :counter="30"
@@ -32,6 +35,7 @@
     ></v-text-field>
     <v-text-field
       label="Hasło"
+      name="password"
       v-model="password"
       type="password"
       :error-messages="passwordErrors"
@@ -39,7 +43,7 @@
       @input="$v.password.$touch()"
       @blur="$v.password.$touch()"
     ></v-text-field>
-
+    <input type="submit">
     <v-btn @click="register">Zarejestruj się</v-btn>
     <v-btn @click="clear">Wyczyść</v-btn>
   </form>

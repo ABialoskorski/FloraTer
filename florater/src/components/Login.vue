@@ -2,6 +2,7 @@
   <form>
     <v-text-field
       label="E-mail"
+      name="email"
       v-model="email"
       :error-messages="emailErrors"
       :counter="30"
@@ -12,6 +13,7 @@
     ></v-text-field>
     <v-text-field
       label="Hasło"
+      name="password"
       v-model="password"
       type="password"
       :error-messages="passwordErrors"
