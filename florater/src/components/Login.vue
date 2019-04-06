@@ -13,6 +13,7 @@
     <v-text-field
       label="Hasło"
       v-model="password"
+      type="password"
       :error-messages="passwordErrors"
       required
       @input="$v.password.$touch()"

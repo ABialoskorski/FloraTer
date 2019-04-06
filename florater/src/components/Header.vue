@@ -5,7 +5,8 @@
       :to="{
         name: 'home'
         }"
-      ><v-icon>home</v-icon>
+      >
+      <v-icon>home</v-icon>
     </v-btn>
       <span class="font-weight-light">FloraTer_1</span>
     </v-toolbar-title>
@@ -16,6 +17,7 @@
       name: 'login'
       }"
       >Zaloguj się
+      <i class="fas fa-sign-in-alt"></i>
     </v-btn>
     <v-btn class="pink white--text"
     :to="{
