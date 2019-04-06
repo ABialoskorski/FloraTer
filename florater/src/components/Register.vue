@@ -43,8 +43,7 @@
       @input="$v.password.$touch()"
       @blur="$v.password.$touch()"
     ></v-text-field>
-    <input type="submit">
-    <v-btn @click="register">Zarejestruj się</v-btn>
+    <v-btn type="submit" @click="register">Zarejestruj się</v-btn>
     <v-btn @click="clear">Wyczyść</v-btn>
   </form>
 </template>
@@ -63,10 +62,10 @@ export default {
   },
   data() {
     return {
-      first_name: "",
-      last_name: "",
-      email: "",
-      password: ""
+      first_name: this.first_name,
+      last_name: this.last_name,
+      email: this.email,
+      password: this.password
     };
   },
 

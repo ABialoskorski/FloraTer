@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <v-app>
-      <h3>{{ info }}</h3>
       <Header></Header>
       <v-content>
         <router-view></router-view>
