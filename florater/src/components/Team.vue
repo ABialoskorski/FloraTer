@@ -5,7 +5,11 @@
       <v-layout row wrap>
         <v-flex xs12 sm6 md4 lg3 v-for="person in team" :key="person.name">
           <v-card flat class="text-xs-center ma-3">
-            <v-responsive class="pt-4">image</v-responsive>
+            <v-responsive class="pt-4">
+              <v-avatar size="70" class="grey lighten-2">
+                <img :src="person.avatar" alt="zdjęcie autora">
+              </v-avatar>
+            </v-responsive>
             <v-card-text>
               <div class="subheading">{{ person.name }}</div>
               <div class="grey--text">{{ person.role }}</div>
@@ -34,24 +38,28 @@ export default {
           name: "Krzystof Stępniak",
           role: "Back-end Developer",
           description: "Krzych",
+          avatar: "/avatar-krzysztof.png",
           show: false
         },
         {
           name: "Sebastian Ufnal",
           role: "Android Developer",
           description: "Seba",
+          avatar: "/avatar-sebastian.png",
           show: false
         },
         {
           name: "Mikołaj Celka",
           role: "Android & Front-end Developer",
           description: "Miki",
+          avatar: "/avatar-mikolaj.png",
           show: false
         },
         {
           name: "Artur Białoskórski",
           role: "Front-end Developer",
           description: "Arturo",
+          avatar: "/avatar-artur.png",
           show: false
         }
       ]
@@ -63,8 +71,6 @@ export default {
 <style scoped lang="scss">
 h1 {
   text-align: center;
-}
-.subheading {
-  font-size: 20px;
+  font-size: 40px;
 }
 </style>
