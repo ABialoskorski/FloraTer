@@ -135,6 +135,17 @@ export default {
           alert(error);
         }
       };
+
+      const showRegistrationResponse = async () => {
+        const data = Register()
+          .then(response => {
+            alert(JSON.stringify(response));
+          })
+          .catch(error => {
+            alert(error);
+          });
+      };
+      showRegistrationResponse();
     }
   }
 };
