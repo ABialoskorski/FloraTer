@@ -28,7 +28,7 @@
       v-model="email"
       :error-messages="emailErrors"
       :counter="30"
-      autocomplete="on"
+      autocomplete="off"
       required
       @input="$v.email.$touch()"
       @blur="$v.email.$touch()"
@@ -38,6 +38,7 @@
       name="password"
       v-model="password"
       type="password"
+      autocomplete="off"
       :error-messages="passwordErrors"
       required
       @input="$v.password.$touch()"

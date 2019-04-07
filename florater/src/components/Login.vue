@@ -21,8 +21,8 @@
       @input="$v.password.$touch()"
       @blur="$v.password.$touch()"
     ></v-text-field>
-    <v-btn @click="login">Zaloguj się</v-btn>
-    <v-btn @click="clear">Wyczyść</v-btn>
+    <v-btn round color="primary" @click="login">Zaloguj się</v-btn>
+    <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
   </form>
 </template>
 
