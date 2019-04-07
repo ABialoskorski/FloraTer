@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <h2>Witaj we FloraTer_1</h2>
-    <p>komponent Home</p>
   </div>
 </template>
 
