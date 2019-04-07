@@ -48,8 +48,8 @@ export default {
       drawer: false,
       links: [
         { icon: "dashboard", title: "Dashboard", route: "/" },
-        { icon: "person", title: "Person", route: "/" },
-        { icon: "folder", title: "Projects", route: "/team" }
+        { icon: "folder", title: "Grupy", route: "/groups" },
+        { icon: "person", title: "Autorzy", route: "/team" }
       ]
     };
   }
