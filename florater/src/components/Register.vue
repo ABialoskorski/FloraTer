@@ -28,7 +28,7 @@
       v-model="email"
       :error-messages="emailErrors"
       :counter="30"
-      autocomplete="on"
+      autocomplete="off"
       required
       @input="$v.email.$touch()"
       @blur="$v.email.$touch()"
@@ -38,13 +38,14 @@
       name="password"
       v-model="password"
       type="password"
+      autocomplete="off"
       :error-messages="passwordErrors"
       required
       @input="$v.password.$touch()"
       @blur="$v.password.$touch()"
     ></v-text-field>
-    <v-btn type="submit" @click="register">Zarejestruj się</v-btn>
-    <v-btn @click="clear">Wyczyść</v-btn>
+    <v-btn round color="primary" type="submit" @click="register">Zarejestruj się</v-btn>
+    <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
   </form>
 </template>
 
