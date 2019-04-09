@@ -75,38 +75,38 @@ export default {
       const errors = [];
       if (!this.$v.first_name.$dirty) return errors;
       !this.$v.first_name.minLength &&
-        errors.push("first_name must be at least 1 character long");
+        errors.push("Imię musi posiadać co najmniej 1 znak");
       !this.$v.first_name.maxLength &&
-        errors.push("first_name must be at most 20 characters long");
-      !this.$v.first_name.required && errors.push("first_name is required");
+        errors.push("Imię nie może być większe niż 20 znaków");
+      !this.$v.first_name.required && errors.push("Imię jest wymagane");
       return errors;
     },
     last_nameErrors() {
       const errors = [];
       if (!this.$v.last_name.$dirty) return errors;
       !this.$v.last_name.minLength &&
-        errors.push("last_name must be at least 1 character long");
+        errors.push("Nazwisko musi posiadać co najmniej 1 znak");
       !this.$v.last_name.maxLength &&
-        errors.push("last_name must be at most 30 characters long");
-      !this.$v.last_name.required && errors.push("last_name is required");
+        errors.push("Nazwisko nie może być większe niż 30 znaków");
+      !this.$v.last_name.required && errors.push("Nazwisko jest wymagane");
       return errors;
     },
     emailErrors() {
       const errors = [];
       if (!this.$v.email.$dirty) return errors;
       !this.$v.email.minLength &&
-        errors.push("E-mail must be at least 1 character long");
+        errors.push("E-mail musi posiadać co najmniej 1 znak");
       !this.$v.email.maxLength &&
-        errors.push("E-mail must be at most 30 characters long");
-      !this.$v.email.required && errors.push("E-mail is required");
+        errors.push("E-mail nie może być większe niż 30 znaków");
+      !this.$v.email.required && errors.push("E-mail jest wymagany");
       return errors;
     },
     passwordErrors() {
       const errors = [];
       if (!this.$v.password.$dirty) return errors;
-      !this.$v.password.required && errors.push("Password is required");
+      !this.$v.password.required && errors.push("Hasło jest wymagane");
       !this.$v.password.minLength &&
-        errors.push("Password must be at least 1 character long");
+        errors.push("Hasło musi posiadać co najmniej 1 znak");
       return errors;
     }
   },
@@ -139,7 +139,7 @@ export default {
       const showRegistrationResponse = async () => {
         const data = Register()
           .then(response => {
-            alert(JSON.stringify(response));
+            alert("Rejestracja zakończona pomyślnie");
           })
           .catch(error => {
             alert(error);
