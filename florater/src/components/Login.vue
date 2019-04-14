@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form action="#" @submit.prevent="log">
     <v-text-field
       label="E-mail"
       name="email"
@@ -74,23 +74,28 @@ export default {
 
   log() {
     const axios = require("axios");
-    let JWTToken = "xxyyzz";
+    let JWTtoken = null;
 
     const Login = () => {
       axios
-        .get("http://127.0.0.1:8000/", {
+        .post("http://127.0.0.1:8000/users/invalidate-token/", {
           headers: {
-            Authorization: `JWT ${JWTToken}`,
-            email: this.email,
-            password: this.password
-          }
+            Authorization: `JWT ${JWTtoken}`
+          },
+          email: this.email,
+          password: this.password
         })
-        .then(res => {
-          this.profile = res.data;
-          alert("profile is:", res.data);
+        .then(response => {
+          console.log(response);
+          const JWTtoken = response.data.access_token;
+
+          localStorage.setItem("access_token", JWTtoken);
+          context.commit("retrieveToken", JWTtoken);
+          resolve(response);
         })
         .catch(error => {
-          alert(error);
+          console.log(error);
+          reject(error);
         });
     };
   }
