@@ -97,6 +97,7 @@ export default {
             JSONdata = JSON.stringify(response);
             JSONParsed = JSON.parse(JSONdata);
             console.log("Parsed", JSONParsed);
+            console.log("Split", JSONParsed.toString().split("."));
             this.$cookie.set("CookieToken", token, {
               expires: "1D",
               domain: "localhost"
