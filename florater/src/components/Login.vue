@@ -38,8 +38,8 @@ export default {
   },
   data() {
     return {
-      email: "",
-      password: ""
+      email: this.email,
+      password: this.password
     };
   },
 
@@ -48,18 +48,18 @@ export default {
       const errors = [];
       if (!this.$v.email.$dirty) return errors;
       !this.$v.email.minLength &&
-        errors.push("Password must be at least 1 character long");
+        errors.push("E-mail musi posiadać co najmniej 1 znak");
       !this.$v.email.maxLength &&
-        errors.push("E-mail must be at most 30 characters long");
-      !this.$v.email.required && errors.push("E-mail is required");
+        errors.push("E-mail nie może być większy niż 30 znaków");
+      !this.$v.email.required && errors.push("E-mail jest wymagany");
       return errors;
     },
     passwordErrors() {
       const errors = [];
       if (!this.$v.password.$dirty) return errors;
       !this.$v.password.minLength &&
-        errors.push("Password must be at least 1 character long");
-      !this.$v.password.required && errors.push("Password is required");
+        errors.push("Hasło musi posiadać co najmniej 1 znak");
+      !this.$v.password.required && errors.push("Hasło jest wymagane");
       return errors;
     }
   },
