@@ -74,29 +74,31 @@ export default {
 
   log() {
     const axios = require("axios");
-    let JWTtoken = null;
-
+    let Config = {
+      headers: {
+        Authorization: "JWT" + JWT_TOKEN
+      }
+    };
     const Login = () => {
-      axios
-        .post("http://127.0.0.1:8000/users/invalidate-token/", {
-          headers: {
-            Authorization: `JWT ${JWTtoken}`
-          },
+      try {
+        axios.get("http://127.0.0.1:8000/users/invalidate-token/", {
           email: this.email,
           password: this.password
-        })
-        .then(response => {
-          console.log(response);
-          const JWTtoken = response.data.access_token;
-
-          localStorage.setItem("access_token", JWTtoken);
-          context.commit("retrieveToken", JWTtoken);
-          resolve(response);
-        })
-        .catch(error => {
-          console.log(error);
-          reject(error);
         });
+      } catch (error) {
+        alert(error);
+      }
+
+      const showLoginResponse = async () => {
+        const data = Login()
+          .then(response => {
+            alert("Logowanie zakończone pomyślnie");
+          })
+          .catch(error => {
+            alert(error);
+          });
+      };
+      showLoginResponse();
     };
   }
 };
