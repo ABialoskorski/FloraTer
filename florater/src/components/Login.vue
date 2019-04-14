@@ -21,7 +21,7 @@
       @input="$v.password.$touch()"
       @blur="$v.password.$touch()"
     ></v-text-field>
-    <v-btn round color="primary" @click="login">Zaloguj się</v-btn>
+    <v-btn round color="primary" @click="log">Zaloguj się</v-btn>
     <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
   </form>
 </template>
@@ -70,6 +70,36 @@ export default {
       this.email = "";
       this.password = "";
     }
+  },
+
+  log() {
+    const axios = require("axios");
+    let Config = {
+      headers: {
+        Authorization: "JWT" + JWT_TOKEN
+      }
+    };
+    const Login = () => {
+      try {
+        axios.get("http://127.0.0.1:8000/login", {
+          email: this.email,
+          password: this.password
+        });
+      } catch (error) {
+        alert(error);
+      }
+
+      const showLoginResponse = async () => {
+        const data = Login()
+          .then(response => {
+            alert("Logowanie zakończone pomyślnie");
+          })
+          .catch(error => {
+            alert(error);
+          });
+      };
+      showLoginResponse();
+    };
   }
 };
 </script>
