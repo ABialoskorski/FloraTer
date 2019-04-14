@@ -74,31 +74,24 @@ export default {
 
   log() {
     const axios = require("axios");
-    let Config = {
-      headers: {
-        Authorization: "JWT" + JWT_TOKEN
-      }
-    };
-    const Login = () => {
-      try {
-        axios.get("http://127.0.0.1:8000/login", {
-          email: this.email,
-          password: this.password
-        });
-      } catch (error) {
-        alert(error);
-      }
+    let JWTToken = "xxyyzz";
 
-      const showLoginResponse = async () => {
-        const data = Login()
-          .then(response => {
-            alert("Logowanie zakończone pomyślnie");
-          })
-          .catch(error => {
-            alert(error);
-          });
-      };
-      showLoginResponse();
+    const Login = () => {
+      axios
+        .get("http://127.0.0.1:8000/", {
+          headers: {
+            Authorization: `JWT ${JWTToken}`,
+            email: this.email,
+            password: this.password
+          }
+        })
+        .then(res => {
+          this.profile = res.data;
+          alert("profile is:", res.data);
+        })
+        .catch(error => {
+          alert(error);
+        });
     };
   }
 };
