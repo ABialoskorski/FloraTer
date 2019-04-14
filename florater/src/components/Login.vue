@@ -21,7 +21,6 @@
       @input="$v.password.$touch()"
       @blur="$v.password.$touch()"
     ></v-text-field>
-    <v-btn round color="primary" @click="log">Zarejestruj się</v-btn>
     <v-btn round color="primary" @click="log">Zaloguj się</v-btn>
     <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
   </form>
@@ -70,16 +69,17 @@ export default {
       this.$v.$reset();
       this.email = "";
       this.password = "";
-     },
+    },
 
     log() {
       const axios = require("axios");
+      var token = "";
 
       const Login = () => {
         try {
           return axios.post("http://127.0.0.1:8000/api/users/obtain-token/", {
             email: this.email,
-            password: this.password,
+            password: this.password
           });
         } catch (error) {
           alert(error);
@@ -89,7 +89,9 @@ export default {
       const showLoginResponse = async () => {
         const data = Login()
           .then(response => {
-            alert(JSON.stringify(response));
+            console.log(JSON.stringify(response));
+            token = response.data.token;
+            console.log(token);
             //this.$router.push("home");
           })
           .catch(error => {
