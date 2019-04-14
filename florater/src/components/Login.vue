@@ -21,6 +21,7 @@
       @input="$v.password.$touch()"
       @blur="$v.password.$touch()"
     ></v-text-field>
+    <v-btn round color="primary" @click="log">Zarejestruj się</v-btn>
     <v-btn round color="primary" @click="log">Zaloguj się</v-btn>
     <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
   </form>
@@ -69,41 +70,37 @@ export default {
       this.$v.$reset();
       this.email = "";
       this.password = "";
-    }
-  },
+     },
 
-  log() {
-    const axios = require("axios");
-    let Config = {
-      headers: {
-        Authorization: "JWT" + JWT_TOKEN
-      }
-    };
-    const Login = () => {
-      try {
-        axios.get("http://127.0.0.1:8000/users/invalidate-token/", {
-          email: this.email,
-          password: this.password
-        });
-      } catch (error) {
-        alert(error);
-      }
+    log() {
+      const axios = require("axios");
+
+      const Login = () => {
+        try {
+          return axios.post("http://127.0.0.1:8000/api/users/obtain-token/", {
+            email: this.email,
+            password: this.password,
+          });
+        } catch (error) {
+          alert(error);
+        }
+      };
 
       const showLoginResponse = async () => {
         const data = Login()
           .then(response => {
-            alert("Logowanie zakończone pomyślnie");
+            alert(JSON.stringify(response));
+            //this.$router.push("home");
           })
           .catch(error => {
             alert(error);
           });
       };
       showLoginResponse();
-    };
+    }
   }
 };
 </script>
-
 
 <style scoped lang="scss">
 </style>
