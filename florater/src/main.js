@@ -8,6 +8,9 @@ import axios from 'axios';
 
 Vue.config.productionTip = false;
 
+var VueCookie = require("vue-cookie");
+Vue.use(VueCookie);
+
 new Vue({
   router,
   store,

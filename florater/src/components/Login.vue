@@ -74,6 +74,8 @@ export default {
     log() {
       const axios = require("axios");
       var token = "";
+      var JSONParsed = "";
+      var JSONdata = "";
 
       const Login = () => {
         try {
@@ -92,6 +94,14 @@ export default {
             console.log(JSON.stringify(response));
             token = response.data.token;
             console.log(token);
+            JSONdata = JSON.stringify(response);
+            JSONParsed = JSON.parse(JSONdata);
+            console.log("Parsed", JSONParsed);
+            this.$cookie.set("CookieToken", token, {
+              expires: "1D",
+              domain: "localhost"
+            });
+            console.log("Cookie ", this.$cookie.get("CookieToken"));
             //this.$router.push("home");
           })
           .catch(error => {
