@@ -22,6 +22,7 @@
       @blur="$v.password.$touch()"
     ></v-text-field>
     <v-btn round color="primary" @click="log">Zaloguj się</v-btn>
+    <v-btn round color="primary" @click="out">Wyloguj się</v-btn>
     <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
   </form>
 </template>
@@ -96,10 +97,8 @@ export default {
             console.log(token);
             JSONdata = JSON.stringify(response);
             JSONParsed = JSON.parse(JSONdata);
-            console.log("Parsed", JSONParsed);
-            console.log("Split", JSONParsed.toString().split("."));
             this.$cookie.set("CookieToken", token, {
-              expires: "1D",
+              expires: "1Y",
               domain: "localhost"
             });
             console.log("Cookie ", this.$cookie.get("CookieToken"));
@@ -110,6 +109,45 @@ export default {
           });
       };
       showLoginResponse();
+    },
+
+    out() {
+      console.log("sd");
+
+      const axios = require("axios");
+      var token = "";
+      var JSONParsed = "";
+      var JSONdata = "";
+      var JWT_TOKEN = this.$cookie.get("CookieToken");
+      let Config = {
+        headers: {
+          Authorization: "JWT " + JWT_TOKEN
+        }
+      };
+
+      const Logout = () => {
+        try {
+          console.log(JWT_TOKEN);
+          console.log(Config);
+
+          return axios.get("http://127.0.0.1:8000/api/users/user-data", Config);
+        } catch (error) {
+          alert(error);
+        }
+      };
+
+      const showLogoutResponse = async () => {
+        const data = Logout()
+          .then(response => {
+            console.log(JSON.stringify(response));
+            console.log(response.data.email);
+            //this.$router.push("home");
+          })
+          .catch(error => {
+            alert(error);
+          });
+      };
+      showLogoutResponse();
     }
   }
 };
