@@ -4,10 +4,12 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "./registerServiceWorker";
-
 import axios from 'axios';
 
 Vue.config.productionTip = false;
+
+var VueCookie = require("vue-cookie");
+Vue.use(VueCookie);
 
 new Vue({
   router,

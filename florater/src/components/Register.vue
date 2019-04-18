@@ -97,7 +97,7 @@ export default {
       !this.$v.email.minLength &&
         errors.push("E-mail musi posiadać co najmniej 1 znak");
       !this.$v.email.maxLength &&
-        errors.push("E-mail nie może być większe niż 30 znaków");
+        errors.push("E-mail nie może być większy niż 30 znaków");
       !this.$v.email.required && errors.push("E-mail jest wymagany");
       return errors;
     },
