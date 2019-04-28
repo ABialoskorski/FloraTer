@@ -30,6 +30,7 @@
 <script>
 import { required, maxLength, minLength } from "vuelidate/lib/validators";
 import { validationMixin } from "vuelidate";
+const link = "http://127.0.0.1:8000/";
 
 export default {
   mixins: [validationMixin],
@@ -80,7 +81,7 @@ export default {
 
       const Login = () => {
         try {
-          return axios.post("http://127.0.0.1:8000/api/users/obtain-token/", {
+          return axios.post(link + "api/users/obtain-token/", {
             email: this.email,
             password: this.password
           });
@@ -98,7 +99,7 @@ export default {
             JSONdata = JSON.stringify(response);
             JSONParsed = JSON.parse(JSONdata);
             this.$cookie.set("CookieToken", token, {
-              expires: "1Y",
+              expires: "2D",
               domain: "localhost"
             });
             console.log("Cookie ", this.$cookie.get("CookieToken"));
@@ -131,7 +132,7 @@ export default {
           console.log(JWT_TOKEN);
           console.log(Config);
 
-          return axios.get("http://127.0.0.1:8000/api/users/user-data", Config);
+          return axios.get(link + "api/users/user-data", Config);
         } catch (error) {
           alert(error);
         }
