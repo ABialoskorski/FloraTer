@@ -109,7 +109,7 @@ export default {
           });
       };
       showLoginResponse();
-      this.$store.setglobalToken();
+      return this.$store.state.setglobalToken;
     },
 
     out() {

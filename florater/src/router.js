@@ -3,16 +3,15 @@ import Router from "vue-router";
 import Home from "@/components/Home.vue";
 import Register from "@/components/Register.vue";
 import Login from "@/components/Login.vue";
-import Groups from "@/components/Groups.vue";
 import Team from "@/components/Team.vue";
+import Form from "@/components/Form.vue"
 
 Vue.use(Router);
 
 export default new Router({
 	mode: "history",
 	base: process.env.BASE_URL,
-	routes: [
-		{
+	routes: [{
 			path: "/",
 			name: "home",
 			component: Home,
@@ -28,14 +27,14 @@ export default new Router({
 			component: Login,
 		},
 		{
-			path: "/groups",
-			name: "groups",
-			component: Groups,
-		},
-		{
 			path: "/team",
 			name: "team",
 			component: Team,
 		},
+		{
+			path: "/form",
+			name: "form",
+			component: Form,
+		}
 	],
 });

@@ -12,7 +12,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setglobalToken(state, globalToken) {
-      globalToken = this.$cookie.get("CookieglobalToken")
+      globalToken = this.$cookie.get("CookieToken")
       if (globalToken) {
         state.isUserLogedIn = true
         console.log("USER LOGGED IN")
