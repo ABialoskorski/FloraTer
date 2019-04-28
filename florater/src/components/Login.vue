@@ -1,30 +1,32 @@
 <template>
-  <form action="#" @submit.prevent="log">
-    <v-text-field
-      label="E-mail"
-      name="email"
-      v-model="email"
-      :error-messages="emailErrors"
-      :counter="30"
-      autocomplete="on"
-      required
-      @input="$v.email.$touch()"
-      @blur="$v.email.$touch()"
-    ></v-text-field>
-    <v-text-field
-      label="Hasło"
-      name="password"
-      v-model="password"
-      type="password"
-      :error-messages="passwordErrors"
-      required
-      @input="$v.password.$touch()"
-      @blur="$v.password.$touch()"
-    ></v-text-field>
-    <v-btn round color="primary" @click="log">Zaloguj się</v-btn>
-    <v-btn round color="primary" @click="out">Wyloguj się</v-btn>
-    <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
-  </form>
+  <div class="login">
+    <form action="#" @submit.prevent="log">
+      <v-text-field
+        label="E-mail"
+        name="email"
+        v-model="email"
+        :error-messages="emailErrors"
+        :counter="30"
+        autocomplete="on"
+        required
+        @input="$v.email.$touch()"
+        @blur="$v.email.$touch()"
+      ></v-text-field>
+      <v-text-field
+        label="Hasło"
+        name="password"
+        v-model="password"
+        type="password"
+        :error-messages="passwordErrors"
+        required
+        @input="$v.password.$touch()"
+        @blur="$v.password.$touch()"
+      ></v-text-field>
+      <v-btn round color="primary" @click="log">Zaloguj się</v-btn>
+      <v-btn round color="primary" @click="out">Wyloguj się</v-btn>
+      <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -156,4 +158,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.login {
+  max-height: 300px;
+  max-width: 500px;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: lightseagreen;
+}
 </style>
