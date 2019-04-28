@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h2>Witaj we FloraTer_1</h2>
-    <p>Programie do wprowadznia roślin do bazy danych</p>
+    <p>Programie do wprowadzania roślin do bazy danych</p>
   </div>
 </template>
 

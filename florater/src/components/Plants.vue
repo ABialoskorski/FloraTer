@@ -7,7 +7,7 @@
         <li
           v-for="plant in plants"
           :key="plant.id"
-        >{{ plant.id}}, {{ plant.name_latin }}, {{ plant.family }}</li>
+        >{{ plant.id }}, {{ plant.name_latin }}, {{ plant.family }}</li>
       </ul>
     </div>
   </div>
@@ -23,20 +23,19 @@ export default {
       plants: []
     };
   },
-  computed: {
-    getplants() {
+  methods: {
+    get() {
       const axios = require("axios");
 
-      axios
-        .get(link + "api/plants/")
-        .then(response => {
-          console.log("dupa");
-
-          this.plants = response.data;
-        })
-        .catch(error => {
+      const getplants = () => {
+        try {
+          return axios.get(link + "api/plants/", {
+            plants: response.data
+          });
+        } catch (error) {
           alert(error);
-        });
+        }
+      };
     }
   }
 };
