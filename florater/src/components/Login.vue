@@ -158,13 +158,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.login {
-  max-height: 300px;
-  max-width: 500px;
-  margin-top: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: lightseagreen;
-}
 </style>
