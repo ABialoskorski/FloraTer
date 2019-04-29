@@ -27,16 +27,18 @@ export default {
     get() {
       const axios = require("axios");
 
-      const getplants = () => {
-        try {
-          return axios.get(link + "api/plants/", {
-            plants: response.data
-          });
-        } catch (error) {
+      axios
+        .get("http://127.0.0.1:8000/api/plants/")
+        .then(response => {
+          this.plants = response.data;
+        })
+        .catch(error => {
           alert(error);
-        }
-      };
+        });
     }
+  },
+  created() {
+    this.get();
   }
 };
 </script>
