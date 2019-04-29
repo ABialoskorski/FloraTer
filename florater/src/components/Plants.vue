@@ -1,23 +1,30 @@
 <template>
-  <div class="plants">
-    <h1 class="grey--text">Baza danych roślin</h1>
-    <div class="plants__list">
-      <h2>Lista roślin</h2>
-      <br>
-      <ul>
-        <li v-for="plant in plants" :key="plant.id">
-          <p>ID: {{ plant.id }}</p>
-          <p>Nazwa łacińska: {{ plant.name_latin }}</p>
-          <p>Nazwa polska: {{ plant.name_polish }}</p>
-          <p>Rodzina: {{ plant.family }}</p>
-          <p>Opis: {{ plant.description }}</p>
-          <br>
-        </li>
-      </ul>
-    </div>
+  <div>
+    <v-container class="my-5">
+      <v-card flat v-for="plant in plants" :key="plant.id">
+        <v-layout row wrap class="plants">
+          <v-flex xs12 md6>
+            <div class="grey--text">Nazwa łacińska</div>
+            <div>{{ plant.name_latin }}</div>
+          </v-flex>
+          <v-flex xs6 sm4 md2>
+            <div class="grey--text">Nazwa polska</div>
+            <div>{{ plant.name_polish }}</div>
+          </v-flex>
+          <v-flex xs6 sm4 md2>
+            <div class="grey--text">Rodzina</div>
+            <div>{{ plant.family }}</div>
+          </v-flex>
+          <v-flex xs2 sm4 md2>
+            <div class="grey--text">Opis</div>
+            <div>{{ plant.description }}</div>
+          </v-flex>
+        </v-layout>
+        <v-divider></v-divider>
+      </v-card>
+    </v-container>
   </div>
 </template>
-
 
 <script>
 const link = "http://127.0.0.1:8000/";
@@ -56,10 +63,10 @@ h1 {
   font-size: 36px;
   margin-top: 50px;
 }
-h2 {
-  margin-top: 40px;
-}
-ul {
-  list-style: none;
+
+.plants {
+  border-left: 4px solid #3cd1c2;
+  font-size: 16px;
+  margin-top: 20px;
 }
 </style>
