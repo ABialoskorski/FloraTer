@@ -7,7 +7,7 @@
         <li
           v-for="plant in plants"
           :key="plant.id"
-        >{{ plant.id }}, {{ plant.name_latin }}, {{ plant.family }}</li>
+        >{{ plant.id }}, {{ plant.name_latin }} {{ plant.name_polish }}, {{ plant.family }}, {{ plant.description }}</li>
       </ul>
     </div>
   </div>
@@ -44,11 +44,16 @@ export default {
 </script>
 <style scoped lang="scss">
 h1 {
+  font-family: "Chakra Petch", sans-serif;
   text-align: center;
   font-size: 36px;
   margin-top: 50px;
 }
 h2 {
   text-align: center;
+}
+li {
+  text-align: center;
+  list-style: none;
 }
 </style>
