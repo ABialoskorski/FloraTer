@@ -4,12 +4,12 @@
       <v-card flat v-for="plant in plants" :key="plant.id">
         <v-layout row wrap class="plants">
           <v-flex xs12 md6>
-            <div class="grey--text">Nazwa łacińska</div>
-            <div>{{ plant.name_latin }}</div>
-          </v-flex>
-          <v-flex xs6 sm4 md2>
             <div class="grey--text">Nazwa polska</div>
             <div>{{ plant.name_polish }}</div>
+          </v-flex>
+          <v-flex xs6 sm4 md2>
+            <div class="grey--text">Nazwa łacińska</div>
+            <div>{{ plant.name_latin }}</div>
           </v-flex>
           <v-flex xs6 sm4 md2>
             <div class="grey--text">Rodzina</div>
