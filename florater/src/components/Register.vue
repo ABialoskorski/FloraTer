@@ -141,7 +141,7 @@ export default {
         const data = Register()
           .then(response => {
             alert("Rejestracja zakończona pomyślnie");
-            this.$router.push("home");
+            this.$router.push("/");
           })
           .catch(error => {
             alert(error);

@@ -105,7 +105,7 @@ export default {
               domain: "localhost"
             });
             console.log("Cookie ", this.$cookie.get("CookieToken"));
-            this.$router.push("home");
+            this.$router.push("/");
           })
           .catch(error => {
             alert(error);
@@ -145,7 +145,7 @@ export default {
           .then(response => {
             console.log(JSON.stringify(response));
             console.log(response.data.email);
-            this.$router.push("home");
+            this.$router.push("/");
           })
           .catch(error => {
             alert(error);
