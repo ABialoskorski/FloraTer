@@ -71,6 +71,6 @@ export default {
 <style scoped lang="scss">
 h1 {
   text-align: center;
-  font-size: 40px;
+  font-size: 36px;
 }
 </style>

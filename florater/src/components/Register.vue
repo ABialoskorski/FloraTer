@@ -52,6 +52,7 @@
 <script>
 import { required, maxLength, minLength } from "vuelidate/lib/validators";
 import { validationMixin } from "vuelidate";
+const link = "http://127.0.0.1:8000/";
 
 export default {
   mixins: [validationMixin],
@@ -125,7 +126,7 @@ export default {
 
       const Register = () => {
         try {
-          return axios.post("http://127.0.0.1:8000/api/users/register/", {
+          return axios.post(link + "api/users/register/", {
             first_name: this.first_name,
             last_name: this.last_name,
             password: this.password,
@@ -140,7 +141,7 @@ export default {
         const data = Register()
           .then(response => {
             alert("Rejestracja zakończona pomyślnie");
-            this.$router.push("home");
+            this.$router.push("/");
           })
           .catch(error => {
             alert(error);

@@ -47,7 +47,8 @@ export default {
     return {
       drawer: false,
       links: [
-        { icon: "dashboard", title: "Dashboard", route: "/" },
+        { icon: "dashboard", title: "Strona główna", route: "/" },
+        { icon: "backup", title: "Baza roślin", route: "/plants" },
         { icon: "folder", title: "Grupy", route: "/groups" },
         { icon: "person", title: "Autorzy", route: "/team" }
       ]

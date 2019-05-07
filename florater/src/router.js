@@ -3,8 +3,9 @@ import Router from "vue-router";
 import Home from "@/components/Home.vue";
 import Register from "@/components/Register.vue";
 import Login from "@/components/Login.vue";
-import Groups from "@/components/Groups.vue";
 import Team from "@/components/Team.vue";
+import Form from "@/components/Form.vue";
+import Plants from "@/components/Plants.vue";
 
 Vue.use(Router);
 
@@ -28,14 +29,19 @@ export default new Router({
 			component: Login,
 		},
 		{
-			path: "/groups",
-			name: "groups",
-			component: Groups,
-		},
-		{
 			path: "/team",
 			name: "team",
 			component: Team,
+		},
+		{
+			path: "/form",
+			name: "form",
+			component: Form,
+		},
+		{
+			path: "/plants",
+			name: "plants",
+			component: Plants,
 		},
 	],
 });

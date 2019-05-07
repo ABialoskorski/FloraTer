@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h2>Witaj we FloraTer_1</h2>
+    <p>Programie do obsługi i zakładania terenowych stanowisk florystycznych</p>
   </div>
 </template>
 
@@ -16,5 +17,6 @@ h2 {
 p {
   text-align: center;
   font-size: 24px;
+  padding-top: 20px;
 }
 </style>
