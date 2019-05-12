@@ -1,6 +1,6 @@
-# florater
+# FloraTer_1
 
-## Project setup
+## Project setup (install dependencies)
 
 ```
 npm install -d
@@ -16,16 +16,4 @@ npm run build
 
 ```
 npm run serve
-```
-
-### Run your tests
-
-```
-npm run test
-```
-
-### Lints and fixes files
-
-```
-npm run lint
 ```
