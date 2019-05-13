@@ -116,8 +116,6 @@ export default {
     },
 
     out() {
-      console.log("sd");
-
       const axios = require("axios");
       var token = "";
       var JSONParsed = "";
@@ -145,6 +143,7 @@ export default {
           .then(response => {
             console.log(JSON.stringify(response));
             console.log(response.data.email);
+            this.$store.dispatch("setToken", JWT_TOKEN);
             this.$router.push("/");
           })
           .catch(error => {
