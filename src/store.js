@@ -6,21 +6,7 @@ Vue.use(Vuex);
 
 
 export default new Vuex.Store({
-  state: {
-    globalToken: null,
-    isUserLogedIn: false,
-  },
-  mutations: {
-    setglobalToken(state, globalToken) {
-      globalToken = this.$cookie.get("CookieToken")
-      if (globalToken) {
-        state.isUserLogedIn = true
-        console.log("USER LOGGED IN")
-      } else {
-        state.isUserLogedIn = false
-        console.log("USER NOT LOGGED IN")
-      }
-    }
-  },
+  state: {},
+  mutations: {},
   actions: {}
 });
