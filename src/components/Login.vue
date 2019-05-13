@@ -105,6 +105,7 @@ export default {
               domain: "localhost"
             });
             console.log("Cookie ", this.$cookie.get("CookieToken"));
+            this.$store.dispatch("setToken", this.$cookie.get("CookieToken"));
             this.$router.push("/");
           })
           .catch(error => {
@@ -143,7 +144,7 @@ export default {
           .then(response => {
             console.log(JSON.stringify(response));
             console.log(response.data.email);
-            this.$store.dispatch("setToken", JWT_TOKEN);
+            this.$store.dispatch("setToken", null);
             this.$router.push("/");
           })
           .catch(error => {

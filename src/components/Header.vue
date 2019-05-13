@@ -12,18 +12,33 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn class="green white--text" :to="{
+        <v-btn
+          class="green white--text"
+          v-if="!$store.state.isUserLogedIn"
+          :to="{
       name: 'login'
-      }">
+      }"
+        >
           Zaloguj się
           <i class="fas fa-sign-in-alt"></i>
         </v-btn>
-        <v-btn class="pink white--text" :to="{
+        <v-btn
+          class="pink white--text"
+          v-if="!$store.state.isUserLogedIn"
+          :to="{
         name: 'register'
-      }">
+      }"
+        >
           Zarejestruj się
           <v-icon>exit_to_app</v-icon>
         </v-btn>
+        <v-btn
+          flat
+          dark
+          v-if="$store.state.isUserLogedIn"
+          @click="logout({
+          name: 'home'})"
+        >Log Out</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-navigation-drawer app v-model="drawer" class="drawer">
@@ -43,15 +58,23 @@
 
 <script>
 export default {
-  data() {
-    return {
-      drawer: false,
-      links: [
-        { icon: "dashboard", title: "Strona główna", route: "/" },
-        { icon: "backup", title: "Baza roślin", route: "/plants" },
-        { icon: "person", title: "Autorzy", route: "/team" }
-      ]
-    };
+  methods: {
+    logout(route) {
+      this.$store.dispatch("setToken", null);
+      this.$router.push({
+        name: "home"
+      });
+    },
+    data() {
+      return {
+        drawer: false,
+        links: [
+          { icon: "dashboard", title: "Strona główna", route: "/" },
+          { icon: "backup", title: "Baza roślin", route: "/plants" },
+          { icon: "person", title: "Autorzy", route: "/team" }
+        ]
+      };
+    }
   }
 };
 </script>
