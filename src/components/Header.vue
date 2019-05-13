@@ -42,7 +42,7 @@
       </v-toolbar-items>
     </v-toolbar>
     <v-navigation-drawer app v-model="drawer" class="drawer">
-      <v-list>
+      <v-list class="list">
         <v-list-tile v-for="link in links" :key="link.text" router :to="link.route">
           <v-list-tile-action>
             <v-icon class="white--text">{{link.icon}}</v-icon>
@@ -58,22 +58,22 @@
 
 <script>
 export default {
+  data() {
+    return {
+      drawer: false,
+      links: [
+        { icon: "dashboard", title: "Strona główna", route: "/" },
+        { icon: "backup", title: "Baza roślin", route: "/plants" },
+        { icon: "person", title: "Autorzy", route: "/team" }
+      ]
+    };
+  },
   methods: {
     logout(route) {
       this.$store.dispatch("setToken", null);
       this.$router.push({
         name: "home"
       });
-    },
-    data() {
-      return {
-        drawer: false,
-        links: [
-          { icon: "dashboard", title: "Strona główna", route: "/" },
-          { icon: "backup", title: "Baza roślin", route: "/plants" },
-          { icon: "person", title: "Autorzy", route: "/team" }
-        ]
-      };
     }
   }
 };
@@ -84,4 +84,13 @@ export default {
 .v-btn {
   font-size: 16px;
 }
+.list {
+  margin-top: 10px;
+}
+.v-list__tile__title {
+  font-size: 16px;
+}
+// .primary--text {
+//   color: red !important;
+// }
 </style>
