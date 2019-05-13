@@ -63,6 +63,7 @@ export default {
       drawer: false,
       links: [
         { icon: "dashboard", title: "Strona główna", route: "/" },
+        { icon: "library_add", title: "Dodaj do bazy", route: "/form" },
         { icon: "backup", title: "Baza roślin", route: "/plants" },
         { icon: "person", title: "Autorzy", route: "/team" }
       ]
