@@ -1,7 +1,11 @@
 <template class="header">
   <nav>
     <v-toolbar fixed app dark>
-      <v-toolbar-side-icon class="grey--text" @click="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon
+        v-if="$store.state.isUserLogedIn"
+        class="grey--text"
+        @click="drawer = !drawer"
+      ></v-toolbar-side-icon>
       <v-toolbar-title>
         <v-btn fab small :to="{
         name: 'home'
@@ -19,26 +23,22 @@
       name: 'login'
       }"
         >
-          Zaloguj się
+          Logowanie
           <i class="fas fa-sign-in-alt"></i>
         </v-btn>
         <v-btn
-          class="pink white--text"
+          class="purple white--text"
           v-if="!$store.state.isUserLogedIn"
           :to="{
         name: 'register'
       }"
-        >
-          Zarejestruj się
-          <v-icon>exit_to_app</v-icon>
-        </v-btn>
+        >Rejestracja</v-btn>
         <v-btn
-          flat
-          dark
+          class="pink white--text"
           v-if="$store.state.isUserLogedIn"
           @click="logout({
           name: 'home'})"
-        >Log Out</v-btn>
+        >Wyloguj się</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-navigation-drawer app v-model="drawer" class="drawer">
@@ -90,7 +90,15 @@ export default {
 .v-list__tile__title {
   font-size: 16px;
 }
-// .primary--text {
-//   color: red !important;
-// }
+.v-btn--floating.v-btn--small {
+  height: 44px;
+  width: 44px;
+  & .v-icon {
+    font-size: 30px;
+  }
+}
+.fas {
+  margin-left: 6px;
+  font-size: 20px;
+}
 </style>
