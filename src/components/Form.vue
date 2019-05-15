@@ -65,10 +65,8 @@
                       locale="pl-pl"
                       v-model="date"
                       :allowed-dates="allowedDates"
-                      class="mt-3"
                       min="2010-01-01"
                       max="2030-01-01"
-                      scrollable
                     >
                       <v-btn flat color="primary" @click="modal = false">Anuluj</v-btn>
                       <v-btn flat color="primary" @click="$refs.dialog.save(date)">Wybierz</v-btn>
@@ -87,10 +85,10 @@
               ></v-text-field>
             </v-flex>
           </v-card-text>
-          <v-divider class="mt-5"></v-divider>
-          <v-card-actions class="form__add">
+          <v-divider></v-divider>
+          <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" @click="submit">Dodaj</v-btn>
+            <v-btn class="form__add" color="primary" @click="submit">Dodaj</v-btn>
           </v-card-actions>
         </v-card>
         <v-divider class="mt-5"></v-divider>
@@ -112,7 +110,10 @@ export default {
 
 <style scoped lang="scss">
 .form__calendar {
-  margin-top: 20px;
+  margin-top: 10px;
+}
+.form__add {
+  font-size: 16px;
 }
 .form__description {
   margin-top: 80px;
