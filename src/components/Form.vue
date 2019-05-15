@@ -17,7 +17,7 @@
               ref="name"
               v-model="polish_name"
               label="Nazwa polska"
-              placeholder="El Paso"
+              placeholder="El Macho"
               required
             ></v-text-field>
             <v-checkbox v-model="herbarium" label="Czy roślina została zebrana?"></v-checkbox>
@@ -34,7 +34,6 @@
             <v-text-field
               ref="geo"
               v-model="geo"
-              :rules="[() => !!geo || 'This field is required']"
               label="Współrzędne geograficzne"
               required
               placeholder="52º 28' 0.337 N 16º 55' 36.991 E"
