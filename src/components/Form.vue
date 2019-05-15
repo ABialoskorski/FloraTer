@@ -64,6 +64,10 @@
                       first-day-of-week="1"
                       locale="pl-pl"
                       v-model="date"
+                      :allowed-dates="allowedDates"
+                      class="mt-3"
+                      min="2010-01-01"
+                      max="2030-01-01"
                       scrollable
                     >
                       <v-btn flat color="primary" @click="modal = false">Anuluj</v-btn>
