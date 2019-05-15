@@ -38,6 +38,7 @@
               required
               placeholder="52º 28' 0.337 N 16º 55' 36.991 E"
             ></v-text-field>
+            <v-text-field ref="date" v-model="date" label="Data" required placeholder="24.04.2019"></v-text-field>
             <v-flex xs12 sm6 md3>
               <v-text-field label="Informacje dodatkowe" background-color="grey" outline></v-text-field>
             </v-flex>
