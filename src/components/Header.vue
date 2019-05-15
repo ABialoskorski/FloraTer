@@ -27,7 +27,7 @@
           <i class="fas fa-sign-in-alt"></i>
         </v-btn>
         <v-btn
-          class="purple white--text"
+          class="blue white--text"
           v-if="!$store.state.isUserLogedIn"
           :to="{
         name: 'register'
@@ -37,7 +37,7 @@
           <i class="register fas fa-user-plus"></i>
         </v-btn>
         <v-btn
-          class="pink white--text"
+          class="blue white--text"
           v-if="$store.state.isUserLogedIn"
           @click="logout({
           name: 'home'})"
