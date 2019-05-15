@@ -9,7 +9,7 @@
               ref="name"
               v-model="latin_name"
               label="Nazwa łacińska"
-              placeholder="El Paso"
+              placeholder="Alcea rosea"
               required
             ></v-text-field>
             <v-text-field
@@ -17,7 +17,7 @@
               ref="name"
               v-model="polish_name"
               label="Nazwa polska"
-              placeholder="El Macho"
+              placeholder="Malwa różowa"
               required
             ></v-text-field>
             <v-checkbox v-model="herbarium" label="Czy roślina została zebrana?"></v-checkbox>
