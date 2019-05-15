@@ -41,7 +41,10 @@
           v-if="$store.state.isUserLogedIn"
           @click="logout({
           name: 'home'})"
-        >Wyloguj się</v-btn>
+        >
+          Wyloguj się
+          <i class="logout fas fa-sign-out-alt"></i>
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-navigation-drawer app v-model="drawer" class="drawer">
@@ -108,5 +111,8 @@ export default {
 .register {
   font-size: 14px;
   margin-left: 6px;
+}
+.logout {
+  font-size: 18px;
 }
 </style>
