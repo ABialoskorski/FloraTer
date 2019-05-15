@@ -32,7 +32,10 @@
           :to="{
         name: 'register'
       }"
-        >Rejestracja</v-btn>
+        >
+          Rejestracja
+          <i class="register fas fa-user-plus"></i>
+        </v-btn>
         <v-btn
           class="pink white--text"
           v-if="$store.state.isUserLogedIn"
@@ -101,5 +104,9 @@ export default {
 .fas {
   margin-left: 6px;
   font-size: 20px;
+}
+.register {
+  font-size: 14px;
+  margin-left: 6px;
 }
 </style>
