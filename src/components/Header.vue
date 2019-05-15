@@ -1,9 +1,9 @@
 <template class="header">
   <nav>
-    <v-toolbar fixed app dark>
+    <v-toolbar fixed dark app>
       <v-toolbar-side-icon
         v-if="$store.state.isUserLogedIn"
-        class="grey--text"
+        color="white--text"
         @click="drawer = !drawer"
       ></v-toolbar-side-icon>
       <v-toolbar-title>
