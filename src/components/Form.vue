@@ -59,9 +59,15 @@
                         v-on="on"
                       ></v-text-field>
                     </template>
-                    <v-date-picker locale="pl-pl" v-model="date" scrollable>
-                      <v-btn flat color="primary" @click="modal = false">Cancel</v-btn>
-                      <v-btn flat color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
+                    <v-date-picker
+                      header-color="green"
+                      first-day-of-week="1"
+                      locale="pl-pl"
+                      v-model="date"
+                      scrollable
+                    >
+                      <v-btn flat color="primary" @click="modal = false">Anuluj</v-btn>
+                      <v-btn flat color="primary" @click="$refs.dialog.save(date)">Wybierz</v-btn>
                     </v-date-picker>
                   </v-dialog>
                 </v-flex>
@@ -83,6 +89,7 @@
             <v-btn color="primary" @click="submit">Dodaj</v-btn>
           </v-card-actions>
         </v-card>
+        <v-divider class="mt-5"></v-divider>
       </v-flex>
     </v-layout>
   </div>
