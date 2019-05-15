@@ -59,7 +59,7 @@
                         v-on="on"
                       ></v-text-field>
                     </template>
-                    <v-date-picker v-model="date" scrollable>
+                    <v-date-picker locale="pl-pl" v-model="date" scrollable>
                       <v-btn flat color="primary" @click="modal = false">Cancel</v-btn>
                       <v-btn flat color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
                     </v-date-picker>
