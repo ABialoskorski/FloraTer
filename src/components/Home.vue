@@ -9,6 +9,13 @@
 export default {};
 </script>
 <style scoped lang="scss">
+.home {
+  &__image {
+    width: 1440px;
+    height: 900px;
+  }
+}
+
 h2 {
   margin-top: 100px;
   font-size: 34px;

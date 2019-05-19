@@ -6,5 +6,8 @@ Vue.use(Vuetify, {
 	iconfont: "md",
 	theme: {
 		drawer: "#9652ff",
+		navbar: "#9ACD32",
+		header: "#2e8b57",
+		icon: "15BC63"
 	},
 });

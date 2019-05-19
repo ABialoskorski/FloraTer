@@ -1,18 +1,18 @@
 <template class="header">
   <nav>
-    <v-toolbar fixed dark app>
+    <v-toolbar fixed class="header" app>
       <v-toolbar-side-icon
         v-if="$store.state.isUserLogedIn"
         color="white--text"
         @click="drawer = !drawer"
       ></v-toolbar-side-icon>
       <v-toolbar-title>
-        <v-btn fab small :to="{
+        <v-btn class="icon" fab small :to="{
         name: 'home'
         }">
-          <v-icon>home</v-icon>
+          <v-icon color="white">home</v-icon>
         </v-btn>
-        <span class="font-weight-light">FloraTer_1</span>
+        <span class="text white--text">FloraTer_1</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -47,7 +47,7 @@
         </v-btn>
       </v-toolbar-items>
     </v-toolbar>
-    <v-navigation-drawer app v-model="drawer" class="drawer">
+    <v-navigation-drawer app v-model="drawer" class="navbar">
       <v-list class="list">
         <v-list-tile v-for="link in links" :key="link.text" router :to="link.route">
           <v-list-tile-action>
@@ -91,11 +91,15 @@ export default {
 .v-btn {
   font-size: 16px;
 }
+.text {
+  padding: 4px;
+  font-size: 20px;
+}
 .list {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .v-list__tile__title {
-  font-size: 16px;
+  font-size: 20px;
 }
 .v-btn--floating.v-btn--small {
   height: 44px;
