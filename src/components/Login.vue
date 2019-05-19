@@ -106,6 +106,7 @@ export default {
             });
             console.log("Cookie ", this.$cookie.get("CookieToken"));
             this.$store.dispatch("setToken", this.$cookie.get("CookieToken"));
+            alert("Zostałeś zalogowany pomyślnie.");
             this.$router.push("/");
           })
           .catch(error => {
@@ -145,6 +146,7 @@ export default {
             console.log(JSON.stringify(response));
             console.log(response.data.email);
             this.$store.dispatch("setToken", null);
+            alert("Zostałeś wylogowany pomyślnie.");
             this.$router.push("/");
           })
           .catch(error => {

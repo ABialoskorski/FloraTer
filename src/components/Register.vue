@@ -140,7 +140,7 @@ export default {
       const showRegistrationResponse = async () => {
         const data = Register()
           .then(response => {
-            alert("Rejestracja zakończona pomyślnie");
+            alert("Zostałeś zarejestrowany pomyślnie.");
             this.$router.push("/");
           })
           .catch(error => {
