@@ -1,31 +1,37 @@
 <template>
   <div class="login">
-    <form action="#" @submit.prevent="log">
-      <v-text-field
-        label="E-mail"
-        name="email"
-        v-model="email"
-        :error-messages="emailErrors"
-        :counter="30"
-        autocomplete="on"
-        required
-        @input="$v.email.$touch()"
-        @blur="$v.email.$touch()"
-      ></v-text-field>
-      <v-text-field
-        label="Hasło"
-        name="password"
-        v-model="password"
-        type="password"
-        :error-messages="passwordErrors"
-        required
-        @input="$v.password.$touch()"
-        @blur="$v.password.$touch()"
-      ></v-text-field>
-      <v-btn round color="primary" @click="log">Zaloguj się</v-btn>
-      <v-btn round color="primary" @click="out">Wyloguj się</v-btn>
-      <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
-    </form>
+    <v-layout justify-center>
+      <v-flex xs12 sm10 md8 lg6>
+        <form action="#" @submit.prevent="log">
+          <v-text-field
+            label="E-mail"
+            name="email"
+            v-model="email"
+            :error-messages="emailErrors"
+            :counter="30"
+            autocomplete="on"
+            required
+            @input="$v.email.$touch()"
+            @blur="$v.email.$touch()"
+          ></v-text-field>
+          <v-text-field
+            label="Hasło"
+            name="password"
+            v-model="password"
+            type="password"
+            :error-messages="passwordErrors"
+            required
+            @input="$v.password.$touch()"
+            @blur="$v.password.$touch()"
+          ></v-text-field>
+          <div class="login__buttons">
+            <v-btn round color="primary" @click="log">Zaloguj się</v-btn>
+            <v-btn round color="primary" @click="out">Wyloguj się</v-btn>
+            <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
+          </div>
+        </form>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
 

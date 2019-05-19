@@ -1,52 +1,58 @@
 <template>
-  <form method="POST" action="http://kfsz.pythonanywhere.com/api/users/register/">
-    <v-text-field
-      label="Imię"
-      name="first_name"
-      v-model="first_name"
-      :error-messages="first_nameErrors"
-      :counter="20"
-      autocomplete="on"
-      required
-      @input="$v.first_name.$touch()"
-      @blur="$v.first_name.$touch()"
-    ></v-text-field>
-    <v-text-field
-      label="Nazwisko"
-      name="last_name"
-      v-model="last_name"
-      :error-messages="last_nameErrors"
-      :counter="30"
-      autocomplete="on"
-      required
-      @input="$v.last_name.$touch()"
-      @blur="$v.last_name.$touch()"
-    ></v-text-field>
-    <v-text-field
-      label="E-mail"
-      name="email"
-      v-model="email"
-      :error-messages="emailErrors"
-      :counter="30"
-      autocomplete="off"
-      required
-      @input="$v.email.$touch()"
-      @blur="$v.email.$touch()"
-    ></v-text-field>
-    <v-text-field
-      label="Hasło"
-      name="password"
-      v-model="password"
-      type="password"
-      autocomplete="off"
-      :error-messages="passwordErrors"
-      required
-      @input="$v.password.$touch()"
-      @blur="$v.password.$touch()"
-    ></v-text-field>
-    <v-btn round color="primary" @click="send">Zarejestruj się</v-btn>
-    <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
-  </form>
+  <v-layout justify-center>
+    <v-flex xs12 sm10 md8 lg6>
+      <form method="POST" action="http://kfsz.pythonanywhere.com/api/users/register/">
+        <v-text-field
+          label="Imię"
+          name="first_name"
+          v-model="first_name"
+          :error-messages="first_nameErrors"
+          :counter="20"
+          autocomplete="on"
+          required
+          @input="$v.first_name.$touch()"
+          @blur="$v.first_name.$touch()"
+        ></v-text-field>
+        <v-text-field
+          label="Nazwisko"
+          name="last_name"
+          v-model="last_name"
+          :error-messages="last_nameErrors"
+          :counter="30"
+          autocomplete="on"
+          required
+          @input="$v.last_name.$touch()"
+          @blur="$v.last_name.$touch()"
+        ></v-text-field>
+        <v-text-field
+          label="E-mail"
+          name="email"
+          v-model="email"
+          :error-messages="emailErrors"
+          :counter="30"
+          autocomplete="off"
+          required
+          @input="$v.email.$touch()"
+          @blur="$v.email.$touch()"
+        ></v-text-field>
+        <v-text-field
+          label="Hasło"
+          name="password"
+          v-model="password"
+          type="password"
+          autocomplete="off"
+          :error-messages="passwordErrors"
+          required
+          @input="$v.password.$touch()"
+          @blur="$v.password.$touch()"
+        ></v-text-field>
+        <div class="register__buttons">
+          <v-btn round color="primary" @click="send">Zarejestruj się</v-btn>
+          <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
+        </div>
+      </form>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
