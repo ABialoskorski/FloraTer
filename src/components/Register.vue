@@ -1,62 +1,73 @@
 <template>
   <v-layout justify-center>
     <v-flex xs12 sm10 md8 lg6>
-      <form method="POST" action="http://kfsz.pythonanywhere.com/api/users/register/">
-        <v-text-field
-          label="Imię"
-          name="first_name"
-          v-model="first_name"
-          :error-messages="first_nameErrors"
-          :counter="20"
-          autocomplete="on"
-          required
-          @input="$v.first_name.$touch()"
-          @blur="$v.first_name.$touch()"
-        ></v-text-field>
-        <v-text-field
-          label="Nazwisko"
-          name="last_name"
-          v-model="last_name"
-          :error-messages="last_nameErrors"
-          :counter="30"
-          autocomplete="on"
-          required
-          @input="$v.last_name.$touch()"
-          @blur="$v.last_name.$touch()"
-        ></v-text-field>
-        <v-text-field
-          label="E-mail"
-          name="email"
-          v-model="email"
-          :error-messages="emailErrors"
-          :counter="30"
-          autocomplete="off"
-          required
-          @input="$v.email.$touch()"
-          @blur="$v.email.$touch()"
-        ></v-text-field>
-        <v-text-field
-          label="Hasło"
-          name="password"
-          v-model="password"
-          type="password"
-          autocomplete="off"
-          :error-messages="passwordErrors"
-          required
-          @input="$v.password.$touch()"
-          @blur="$v.password.$touch()"
-        ></v-text-field>
-        <div class="register__buttons">
-          <v-btn round color="primary" @click="send">Zarejestruj się</v-btn>
-          <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
-        </div>
-      </form>
+      <v-form ref="form" v-model="valid" lazy-validation>
+        <form method="POST" action="http://kfsz.pythonanywhere.com/api/users/register/">
+          <v-text-field
+            label="Imię"
+            name="first_name"
+            :rules="inputRules"
+            v-model="first_name"
+            :error-messages="first_nameErrors"
+            :counter="20"
+            autocomplete="on"
+            required
+            @input="$v.first_name.$touch()"
+            @blur="$v.first_name.$touch()"
+          ></v-text-field>
+          <v-text-field
+            label="Nazwisko"
+            name="last_name"
+            :rules="inputRules"
+            v-model="last_name"
+            :error-messages="last_nameErrors"
+            :counter="30"
+            autocomplete="on"
+            required
+            @input="$v.last_name.$touch()"
+            @blur="$v.last_name.$touch()"
+          ></v-text-field>
+          <v-text-field
+            label="E-mail"
+            name="email"
+            :rules="inputRules"
+            v-model="email"
+            :error-messages="emailErrors"
+            :counter="30"
+            autocomplete="off"
+            required
+            @input="$v.email.$touch()"
+            @blur="$v.email.$touch()"
+          ></v-text-field>
+          <v-text-field
+            label="Hasło"
+            name="password"
+            :rules="inputRules"
+            v-model="password"
+            type="password"
+            autocomplete="off"
+            :error-messages="passwordErrors"
+            required
+            @input="$v.password.$touch()"
+            @blur="$v.password.$touch()"
+          ></v-text-field>
+          <div class="register__buttons">
+            <v-btn round color="primary" @click="send">Zarejestruj się</v-btn>
+            <v-btn round color="grey" class="white--text" @click="clear">Wyczyść</v-btn>
+          </div>
+        </form>
+      </v-form>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import { required, maxLength, minLength } from "vuelidate/lib/validators";
+import {
+  required,
+  maxLength,
+  minLength,
+  email
+} from "vuelidate/lib/validators";
 import { validationMixin } from "vuelidate";
 const link = "http://127.0.0.1:8000/";
 
@@ -73,7 +84,11 @@ export default {
       first_name: this.first_name,
       last_name: this.last_name,
       email: this.email,
-      password: this.password
+      password: this.password,
+      inputRules: [
+        value => value.length >= 5 || "Min length 5 characters",
+        value => value.length <= 30 || "Max length 30 characters"
+      ]
     };
   },
 
@@ -129,6 +144,10 @@ export default {
 
     send() {
       const axios = require("axios");
+
+      if (this.$refs.form.validate()) {
+        alert("Zastosuj sie do walidacji");
+      }
 
       const Register = () => {
         try {
