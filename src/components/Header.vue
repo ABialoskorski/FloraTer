@@ -12,7 +12,7 @@
         }">
           <v-icon color="white">home</v-icon>
         </v-btn>
-        <span class="text white--text">FloraTer_1</span>
+        <span class="text white--text">FloraTer</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>

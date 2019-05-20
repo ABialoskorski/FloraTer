@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h2>Witaj we FloraTer_1</h2>
+    <h2>Witaj we FloraTer</h2>
     <p>Programie do obsługi i zakładania terenowych stanowisk florystycznych</p>
   </div>
 </template>
